@@ -1,17 +1,13 @@
-<mat-accordion style="justify-content: space-between; align-items: center; flex-basis: 0;">
+<mat-accordion>
     <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title>
-                <mat-checkbox [checked]="todo.done" (click)="updateDone(todo.id)">
-                    <p
-                    style="
-                        white-space: nowrap;
+                <mat-checkbox [checked]="todo.done" (click)="updateDone(todo.id)"
+                style=" white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
-                        max-width: 850px;
-                    ">
+                        max-width: 850px;">
                     {{todo.title}}
-                </p>
                 </mat-checkbox>
             </mat-panel-title>
         </mat-expansion-panel-header>

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Todo } from './todo/model/todo.model';
 import { TodoService } from './services/TodoService';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent {
   public todos$: Observable<Todo[]>;
   public fg: FormGroup;
 
-  constructor(public service: TodoService, private fb: FormBuilder) {
+  constructor(public service: TodoService, private fb: FormBuilder, private _snackbar: MatSnackBar) {
     this.todos$ = this.service.GetAll();
     this.fg = fb.group({
       title: ['', Validators.minLength(3)]
@@ -28,8 +29,12 @@ export class AppComponent {
     const { title } = this.fg.controls;
     this.service.AddTodo(title.value)
     .subscribe(
-      (data) => { this.todos$ = this.service.GetAll(); this.fg.reset(); },
-      (err) => { console.log(err); }
+      (data: any) => { 
+        this.todos$ = this.service.GetAll(); 
+        this.fg.reset(); 
+        this._snackbar.open(data.message, 'Ok');
+      },
+      (err) => { this._snackbar.open(err.message, 'Ok') }
     );
   }
 }
