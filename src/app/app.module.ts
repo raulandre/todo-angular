@@ -4,13 +4,15 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TodoComponent } from './todo/component/todo.component';
-import { TodoService } from './todo/services/TodoService';
+import { TodoService } from './services/TodoService';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { TodoService } from './todo/services/TodoService';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatCardModule,
+    MatExpansionModule,
     MatProgressSpinnerModule
   ],
   providers: [

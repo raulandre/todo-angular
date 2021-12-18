@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Todo } from "../model/todo.model";
+import { Todo } from "../todo/model/todo.model";
 
 @Injectable()
 export class TodoService
@@ -16,6 +16,10 @@ export class TodoService
 
     public AddTodo(title: string) {
         return this.http.post(this.url, { title, user: "username" });
+    }
+
+    public UpdateTodo(id: string, title: string) {
+        return this.http.put(this.url, { title, id, user: "username" });
     }
 
     public UpdateDone(id: string) {

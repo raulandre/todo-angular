@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Todo } from './todo/model/todo.model';
-import { TodoService } from './todo/services/TodoService';
+import { TodoService } from './services/TodoService';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,7 @@ export class AppComponent {
   constructor(public service: TodoService, private fb: FormBuilder) {
     this.todos$ = this.service.GetAll();
     this.fg = fb.group({
-      title: ''
+      title: ['', Validators.minLength(3)]
     });
   }
 
