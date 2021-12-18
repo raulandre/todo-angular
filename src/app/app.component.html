@@ -6,7 +6,7 @@
       <p class="center-text">Add a todo item here!</p>
       <mat-form-field class="center-text">
         <mat-label>Title</mat-label>
-        <input matInput required formControlName="title" (keyup.enter)="submit()">
+        <input matInput required formControlName="title" (keyup.enter)="submit()" [disabled]="loading">
       </mat-form-field>
     </form>  
   </mat-card-subtitle>

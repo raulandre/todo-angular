@@ -4,12 +4,17 @@
         <mat-expansion-panel-header>
             <mat-panel-title>
                 <mat-checkbox [checked]="todo.done" (click)="updateDone(todo.id)">
+                    <p
+                    style="
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        max-width: 850px;
+                    ">
                     {{todo.title}}
+                </p>
                 </mat-checkbox>
             </mat-panel-title>
-            <mat-panel-description>
-                {{todo.id}}
-            </mat-panel-description>
         </mat-expansion-panel-header>
 
         <form [formGroup]="fg">

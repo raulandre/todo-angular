@@ -20,6 +20,10 @@ export class AppComponent {
     });
   }
 
+  get loading() {
+    return this.service.loading;
+  }
+
   submit() {
     const { title } = this.fg.controls;
     this.service.AddTodo(title.value)
