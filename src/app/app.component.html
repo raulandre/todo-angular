@@ -1,0 +1,28 @@
+<h1 class="center center-text">Todo List</h1>
+
+<form class="center center-text" [formGroup]="fg">
+  <p class="center-text">Add a todo here!</p>
+  <mat-form-field class="center-text">
+    <mat-label>Title</mat-label>
+    <input matInput required formControlName="title" (keyup.enter)="submit()">
+  </mat-form-field>
+</form>
+
+<div class="center">
+  <mat-progress-spinner 
+  mode="indeterminate"
+  style="margin: 0 auto;"
+  *ngIf="service.loading">
+  </mat-progress-spinner>
+
+  <div>
+    <div *ngIf="!service.loading">
+      <div *ngFor="let todo of todos$ | async">
+        <app-todo [todo]="todo"></app-todo>
+      </div>
+    </div>
+    <div *ngIf="(todos$ | async)?.length == 0">
+      <p class="center-text">No todos found! :)</p>
+    </div>
+  </div>
+</div>
