@@ -1,6 +1,5 @@
-<mat-accordion>
+<mat-accordion style="justify-content: space-between; align-items: center; flex-basis: 0;">
     <mat-expansion-panel>
-        
         <mat-expansion-panel-header>
             <mat-panel-title>
                 <mat-checkbox [checked]="todo.done" (click)="updateDone(todo.id)">
@@ -22,6 +21,7 @@
                 <mat-label>Update title</mat-label>
                 <input matInput required formControlName="title" (keyup.enter)="update(todo.id)">
             </mat-form-field>
+            <mat-icon style="margin-left: 98%; margin-top: 1.5%; cursor: pointer;" (click)="delete(todo.id)">delete</mat-icon>
         </form>
 
     </mat-expansion-panel>

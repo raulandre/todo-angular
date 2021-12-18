@@ -18,6 +18,10 @@ export class TodoService
         return this.http.post(this.url, { title, user: "username" });
     }
 
+    public DeleteTodo(id: string) {
+        return this.http.delete(`${this.url}/${id}`);
+    }
+
     public UpdateTodo(id: string, title: string) {
         return this.http.put(this.url, { title, id, user: "username" });
     }

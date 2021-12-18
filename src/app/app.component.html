@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card style="height: 100%;">
   <mat-card-title class="center center-text">Todo List</mat-card-title>
 
   <mat-card-subtitle>
@@ -6,7 +6,7 @@
       <p class="center-text">Add a todo item here!</p>
       <mat-form-field class="center-text">
         <mat-label>Title</mat-label>
-        <input matInput required formControlName="title" (keyup.enter)="submit()" [disabled]="loading">
+        <input matInput required formControlName="title" (keyup.enter)="submit()">
       </mat-form-field>
     </form>  
   </mat-card-subtitle>

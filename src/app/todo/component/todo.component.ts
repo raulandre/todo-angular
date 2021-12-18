@@ -26,7 +26,7 @@ export class TodoComponent implements OnInit {
     this.service.UpdateDone(id)
     .subscribe(
       (data: any) => { this.service.loading = false; },
-      (err) => { this.service.loading = false; }
+      (err) => { console.log(err); this.service.loading = false; }
     );
   }
 
@@ -40,4 +40,12 @@ export class TodoComponent implements OnInit {
     );
   }
 
+  public delete(id: string) {
+    this.service.loading = true;
+    this.service.DeleteTodo(id)
+    .subscribe(
+      (data: any) => { this.service.loading = false; },
+      (err) => { console.log(err); this.service.loading = false; }
+    );
+  }
 }
